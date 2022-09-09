@@ -1,16 +1,18 @@
-<!--
-title: 'AWS NodeJS Example'
-description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.'
-layout: Doc
-framework: v3
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+<h1 align="center">
+  <a href="https://www.delasign.com/">delasign's</a> Opensource Typescript + Serverless Starter Project
+</h1>
 
+## 🚀 Quick start
+
+If you wish you follow how this starter project was created please visit this <a href="https://www.delasign.com/blog/ts-serverless-project">link</a>.
+
+1.  **Run Yarn Install**
+
+Navigate into the projects directory and install the packages.
+
+```shell
+ yarn install
+```
 
 # Serverless Framework AWS NodeJS Example
 
@@ -49,8 +51,8 @@ Which should result in response similar to the following:
 
 ```json
 {
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
+  "statusCode": 200,
+  "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
 }
 ```
 

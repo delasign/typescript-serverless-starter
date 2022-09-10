@@ -1,10 +1,13 @@
 service: typescript-serverless-starter
 
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs14.x
+
+plugins:
+  - serverless-plugin-typescript
 
 functions:
   hello:

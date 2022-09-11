@@ -5,6 +5,7 @@
     "sourceMap": true,
     "allowJs": true,
     "target": "es6",
+    "jsx": "preserve",
     "outDir": ".build",
     "moduleResolution": "node",
     "lib": ["es2015", "ES2022"],

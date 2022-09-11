@@ -9,6 +9,12 @@
     "outDir": ".build",
     "moduleResolution": "node",
     "lib": ["es2015", "ES2022"],
-    "rootDir": "./"
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "functions/*": ["functions/*"],
+      "modules/*": ["modules/*"],
+      "types/*": ["types/*"]
+    }
   }
 }

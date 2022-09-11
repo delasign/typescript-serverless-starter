@@ -8,6 +8,13 @@ provider:
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-tscpaths
+
+custom:
+  tscpaths:
+    functions: functions
+    modules: modules
+    types: types
 
 functions:
   hello:

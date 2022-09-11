@@ -1,5 +1,5 @@
 "use strict";
-const sample = require('modules/sample');
+const sample = require('modules/sample.ts');
 
 
 module.exports.hello = async (event) => {

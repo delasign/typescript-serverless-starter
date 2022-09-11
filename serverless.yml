@@ -5,6 +5,9 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs14.x
+  apiGateway:
+    apiKeys:
+      - typescript-serverless-starter-key-dev
 
 plugins:
   - serverless-plugin-typescript
@@ -23,6 +26,14 @@ functions:
       - http:
           path: /hello
           method: post
+          private: true
           cors:
             origins:
               - "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+            allowCredentials: false

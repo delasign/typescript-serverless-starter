@@ -5,7 +5,7 @@
     "sourceMap": true,
     "allowJs": true,
     "target": "es6",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "outDir": ".build",
     "moduleResolution": "node",
     "lib": ["es2015", "ES2022"],
@@ -16,5 +16,6 @@
       "modules/*": ["modules/*"],
       "types/*": ["types/*"]
     }
-  }
+  },
+  "include": ["./**/*"]
 }

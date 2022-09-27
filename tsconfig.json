@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "preserveConstEnums": true,
     "strictNullChecks": true,
     "sourceMap": true,
@@ -7,8 +8,12 @@
     "target": "es6",
     "jsx": "react-jsx",
     "outDir": ".build",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["es2015", "ES2022"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["ES2022"],
     "rootDir": "./",
     "baseUrl": "./",
     "paths": {

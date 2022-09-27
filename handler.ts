@@ -1,9 +1,8 @@
 "use strict";
-const sample = require('modules/sample.ts');
+import sample from 'modules/sample';
 
-
-module.exports.hello = async (event) => {
-  sample.test()
+module.exports.hello = async (event: any) => {
+  sample("HELLO WORLD")
   return {
     statusCode: 200,
     body: JSON.stringify(

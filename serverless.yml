@@ -10,12 +10,6 @@ plugins:
   - serverless-plugin-typescript
   - serverless-tscpaths
 
-package:
-  include:
-    - functions
-    - modules
-    - types
-
 custom:
   tscpaths:
     functions: functions

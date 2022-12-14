@@ -1,19 +1,17 @@
 "use strict";
 // MARK: Types
 // MARK: Modules
-import sample from "modules/sample";
 // MARK: Functionality
 import { FailedResponse, SuccesfullResponse } from "utils/response/index";
-// MARK: Handler
 // MARK: Errors
+// MARK: Handler
 // Identifier
 const identifier: string = "Hello World";
 // Function
 const handler = (event: any, context: any, callback: any) => {
-  sample("HELLO WORLD");
   // MARK: Variables
   // MARK: Algorithm
-
+  // i.e. Check that the required parameters are in place.
   // For a succesful response
   return SuccesfullResponse(callback, identifier);
   // For a failed response
@@ -38,4 +36,4 @@ const handler = (event: any, context: any, callback: any) => {
 };
 */
 // MARK: Export Module
-module.exports.hello = handler;
+module.exports.sample = handler;

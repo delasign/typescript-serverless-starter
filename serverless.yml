@@ -19,9 +19,10 @@ custom:
     functions: functions
     modules: modules
     types: types
+    utils: utils
 
 functions:
   hello:
     handler: handler.hello
   sample:
-    handler: functions/sample.hello
+    handler: functions/sample.handler

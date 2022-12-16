@@ -3,6 +3,7 @@
 // MARK: Modules
 // MARK: Functionality
 import { FailedResponse, SuccesfullResponse } from "utils/response/index";
+import { LogInProgress, LogSuccess } from "utils/logs";
 // MARK: Errors
 // MARK: Handler
 // Identifier
@@ -11,6 +12,7 @@ const identifier: string = "Hello World";
 const handler = (event: any, context: any, callback: any) => {
   // MARK: Variables
   // MARK: Algorithm
+  LogInProgress(identifier);
   // i.e. Check that the required parameters are in place.
   // For a succesful response
   return SuccesfullResponse(callback, identifier);
@@ -36,4 +38,4 @@ const handler = (event: any, context: any, callback: any) => {
 };
 */
 // MARK: Export Module
-module.exports = handler;
+module.exports.handler = handler;

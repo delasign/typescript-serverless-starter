@@ -12,7 +12,7 @@ const identifier: string = "Hello World";
 const handler = (event: any, context: any, callback: any) => {
   // MARK: Variables
   // MARK: Algorithm
-  LogInProgress(identifier);
+  LogInProgress(identifier, process.env.SAMPLE_STRING);
   // i.e. Check that the required parameters are in place.
   // For a succesful response
   return SuccesfullResponse(callback, identifier);

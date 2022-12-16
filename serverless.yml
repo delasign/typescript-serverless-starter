@@ -25,4 +25,5 @@ functions:
   hello:
     handler: handler.hello
   sample:
-    handler: functions/sample.handler
+    #Use of an environment variable within a serverless yml to name a function.
+    handler: functions/${self:provider.environment.SAMPLE}.handler

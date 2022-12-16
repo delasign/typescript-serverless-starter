@@ -5,6 +5,10 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs14.x
+  #Add your environment variables below
+  environment:
+    SAMPLE: sample
+    SAMPLE_STRING: "sample environment variable string."
 
 plugins:
   - serverless-plugin-typescript
@@ -19,3 +23,5 @@ custom:
 functions:
   hello:
     handler: handler.hello
+  sample:
+    handler: functions/sample.hello

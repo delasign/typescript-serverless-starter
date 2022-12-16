@@ -36,4 +36,4 @@ const handler = (event: any, context: any, callback: any) => {
 };
 */
 // MARK: Export Module
-module.exports.sample = handler;
+module.exports = handler;

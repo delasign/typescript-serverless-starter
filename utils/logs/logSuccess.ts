@@ -1,11 +1,10 @@
 // MARK: Function
-const LogSuccess = (message: string, object?: any) => {
-    if (object) {
-        console.log("✅ " + message + " : ", object);
-    } else {
-        console.log("✅ "+message+".")
-    }
-    
-}
+const LogSuccess = (process: string, object?: any) => {
+  if (object) {
+    console.log("✅ " + process + " : ", object);
+  } else {
+    console.log("✅ " + process + ".");
+  }
+};
 
-export default LogSuccess
+export default LogSuccess;

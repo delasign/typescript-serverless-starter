@@ -17,6 +17,7 @@
     "rootDir": "./",
     "baseUrl": "./",
     "paths": {
+      "utils/*": ["utils/*"],
       "functions/*": ["functions/*"],
       "modules/*": ["modules/*"],
       "types/*": ["types/*"]

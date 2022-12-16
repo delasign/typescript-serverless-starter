@@ -1,5 +1,5 @@
 import FailedResponse from "./failedResponse";
-import SuccesfullResponse from "./succesfullResponse";
+import SuccessfulResponse from "./successfullResponse";
 
-export default SuccesfullResponse
-export { SuccesfullResponse, FailedResponse}
+export default SuccessfulResponse;
+export { SuccessfulResponse, FailedResponse };

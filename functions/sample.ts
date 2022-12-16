@@ -2,7 +2,7 @@
 // MARK: Types
 // MARK: Modules
 // MARK: Functionality
-import { FailedResponse, SuccesfullResponse } from "utils/response/index";
+import { FailedResponse, SuccessfulResponse } from "utils/response/index";
 import { LogInProgress, LogSuccess } from "utils/logs";
 // MARK: Errors
 // MARK: Handler
@@ -15,7 +15,7 @@ const handler = (event: any, context: any, callback: any) => {
   LogInProgress(identifier);
   // i.e. Check that the required parameters are in place.
   // For a succesful response
-  return SuccesfullResponse(callback, identifier);
+  return SuccessfulResponse(callback, identifier);
   // For a failed response
   // return FailedResponse(callback, identifier, "Your Error Here");
 };

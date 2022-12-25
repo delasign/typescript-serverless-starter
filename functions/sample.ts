@@ -1,23 +1,55 @@
 "use strict";
 // MARK: Types
 // MARK: Modules
+import { GraphQLClient, gql } from "graphql-request";
 // MARK: Functionality
 import { FailedResponse, SuccessfulResponse } from "utils/response/index";
 import { LogInProgress, LogSuccess } from "utils/logs";
 // MARK: Errors
 // MARK: Handler
 // Identifier
-const identifier: string = "Hello World";
+const identifier: string = "GraphQL Query Sample";
 // Function
-const handler = (event: any, context: any, callback: any) => {
+const handler = async (event: any, context: any, callback: any) => {
   // MARK: Variables
-  // MARK: Algorithm
-  LogInProgress(identifier);
-  // i.e. Check that the required parameters are in place.
-  // For a succesful response
-  return SuccessfulResponse(callback, identifier);
-  // For a failed response
-  // return FailedResponse(callback, identifier, "Your Error Here");
+  // Setup your GraphQL Client to work with an endpoint and token.
+  const endpoint: string = "YOUR_URL";
+  const token: string = "Bearer YOUR_TOKEN";
+
+  const graphQLClient: GraphQLClient = new GraphQLClient(endpoint, {
+    headers: {
+      authorization: token,
+    },
+  });
+  // Create your query
+  const query: string = gql`
+    query GetAllSubscribersQuery {
+      entries {
+        ... on subscribers_default_Entry {
+          email
+          subscriberName
+          subscribed
+        }
+      }
+    }
+  `;
+  // Make the request
+  await graphQLClient
+    .request(query)
+    // Handle the response
+    .then((data) => {
+      const json = JSON.stringify(data, undefined, 2);
+
+      // MARK: Algorithm
+      LogInProgress(identifier, json);
+      // i.e. Check that the required parameters are in place.
+      // For a succesful response
+      return SuccessfulResponse(callback, identifier);
+    })
+    // Handle the error
+    .catch((error) => {
+      return FailedResponse(callback, identifier, error);
+    });
 };
 
 // MARK: Support Functionality

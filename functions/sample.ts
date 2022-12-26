@@ -1,23 +1,75 @@
 "use strict";
 // MARK: Types
 // MARK: Modules
+import { GraphQLClient, gql } from "graphql-request";
 // MARK: Functionality
 import { FailedResponse, SuccessfulResponse } from "utils/response/index";
 import { LogInProgress, LogSuccess } from "utils/logs";
 // MARK: Errors
 // MARK: Handler
 // Identifier
-const identifier: string = "Hello World";
+const identifier: string = "GraphQL Mutation Sample";
 // Function
-const handler = (event: any, context: any, callback: any) => {
+const handler = async (event: any, context: any, callback: any) => {
   // MARK: Variables
-  // MARK: Algorithm
-  LogInProgress(identifier);
-  // i.e. Check that the required parameters are in place.
-  // For a succesful response
-  return SuccessfulResponse(callback, identifier);
-  // For a failed response
-  // return FailedResponse(callback, identifier, "Your Error Here");
+  // Setup your GraphQL Client to work with an endpoint and token.
+  const endpoint: string = "YOUR_GRAPHQL_API";
+  const token: string = "Bearer YOUR_GRAPHQL_TOKEN";
+
+  const graphQLClient: GraphQLClient = new GraphQLClient(endpoint, {
+    headers: {
+      authorization: token,
+    },
+  });
+  // Create your mutation
+  const mutation: string = gql`
+    mutation createSubscriber(
+      $authorId: ID
+      $email: String
+      $subscriberName: String
+      $subscribed: Boolean
+    ) {
+      save_subscribers_default_Entry(
+        authorId: $authorId
+        title: $email
+        email: $email
+        subscriberName: $subscriberName
+        subscribed: $subscribed
+      ) {
+        ... on subscribers_default_Entry {
+          title
+          email
+          subscriberName
+          subscribed
+        }
+      }
+    }
+  `;
+  // Write the variables
+  const variables = {
+    authorId: 1,
+    email: "mutation@sample.com",
+    subscriberName: "Sample Mutation",
+    subscribed: true,
+  };
+
+  // Make the request
+  await graphQLClient
+    .request(mutation, variables)
+    // Handle the response
+    .then((data) => {
+      const json = JSON.stringify(data, undefined, 2);
+
+      // MARK: Algorithm
+      LogInProgress(identifier, json);
+      // i.e. Check that the required parameters are in place.
+      // For a succesful response
+      return SuccessfulResponse(callback, identifier, json);
+    })
+    // Handle the error
+    .catch((error) => {
+      return FailedResponse(callback, identifier, error);
+    });
 };
 
 // MARK: Support Functionality

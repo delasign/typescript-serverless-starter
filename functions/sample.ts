@@ -13,8 +13,8 @@ const identifier: string = "GraphQL Query Sample";
 const handler = async (event: any, context: any, callback: any) => {
   // MARK: Variables
   // Setup your GraphQL Client to work with an endpoint and token.
-  const endpoint: string = "YOUR_URL";
-  const token: string = "Bearer YOUR_TOKEN";
+  const endpoint: string = "YOUR_GRAPHQL_API";
+  const token: string = "Bearer YOUR_GRAPHQL_TOKEN";
 
   const graphQLClient: GraphQLClient = new GraphQLClient(endpoint, {
     headers: {
@@ -38,13 +38,13 @@ const handler = async (event: any, context: any, callback: any) => {
     .request(query)
     // Handle the response
     .then((data) => {
-      const json = JSON.stringify(data, undefined, 2);
+      const json = JSON.stringify(data.entries, undefined, 2);
 
       // MARK: Algorithm
       LogInProgress(identifier, json);
       // i.e. Check that the required parameters are in place.
       // For a succesful response
-      return SuccessfulResponse(callback, identifier);
+      return SuccessfulResponse(callback, identifier, json);
     })
     // Handle the error
     .catch((error) => {
